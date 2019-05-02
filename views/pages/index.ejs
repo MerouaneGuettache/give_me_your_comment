@@ -1,0 +1,33 @@
+<% include header %>
+
+<form action="/" method="post" class="ui form">
+    <div class="field">
+        <label for="message">Enter your comment here :</label>
+        <textarea name="message" id="message"></textarea>
+    </div>
+    <button type="submit" class="ui blue labeled submit icon button">
+        <i class="icon edit"></i>Send
+    </button>
+
+</form>
+
+<div class="ui comments">
+    <h3 class="ui dividing header">comments</h3>
+    <% for (message of messages) { %>
+        <div class="comment">
+            <a class="avatar">
+                <img src="https://randomuser.me/api/portraits/lego/7.jpg">
+            </a>
+            <div class="content">
+                <div class="metadata">
+                    <div class="date">
+                        <%= message.created_at %>
+                    </div>
+                </div>
+                <div class="test"><%= message.content %></div>
+            </div>
+        </div>
+    <% } %>
+</div>
+
+<% include footer %>
